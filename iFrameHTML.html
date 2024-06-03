@@ -6,247 +6,248 @@
     <title>DOCX to PDF and Print</title>
     <style>
       html,
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: #808080;
-  border: 0;
-}
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #808080;
+        border: 0;
+      }
 
-#toolbar {
-  width: 100%;
-  padding: 10px;
-  background: #333;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  height: 7%;
-  font-size: 18px;
-  z-index: 1000;
-  position: relative;
-}
+      #toolbar {
+        width: 100%;
+        padding: 10px;
+        background: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        height: 7%;
+        font-size: 18px;
+        z-index: 1000;
+        position: relative;
+      }
 
-#toolbar .right-section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 25%;
-}
+      #toolbar .right-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 25%;
+      }
 
-#toolbar input[type=range] {
-  width: 100%;
-  -webkit-appearance: none;
-  appearance: none;
-  height: 5px;
-  background: #ddd;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity .15s ease-in-out;
-  border-radius: 5px;
-}
+      #toolbar input[type=range] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 5px;
+        background: #ddd;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity .15s ease-in-out;
+        border-radius: 5px;
+      }
 
-#toolbar input[type=range]:hover {
-  opacity: 1;
-}
+      #toolbar input[type=range]:hover {
+        opacity: 1;
+      }
 
-#toolbar input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #6A7A7F;
-  cursor: pointer;
-}
+      #toolbar input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #6A7A7F;
+        cursor: pointer;
+      }
 
-#toolbar input[type=range]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: #6A7A7F;
-  cursor: pointer;
-}
+      #toolbar input[type=range]::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #6A7A7F;
+        cursor: pointer;
+      }
 
-#left-section {
-  display: flex;
-  align-items: center;
-  width: 75%;
-  justify-content: flex-start; /* Align items to the left */
-}
+      #left-section {
+        display: flex;
+        align-items: center;
+        width: 75%;
+        justify-content: flex-start;
+        /* Align items to the left */
+      }
 
-#title {
-  margin-left: 5px;
-  font-size: 18px;
-}
+      #title {
+        margin-left: 5px;
+        font-size: 18px;
+      }
 
-#help-icon {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  font-size: 16px;
-}
+      #help-icon {
+        position: relative;
+        display: flex;
+        cursor: pointer;
+        font-size: 16px;
+      }
 
-#help-icon svg {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease-in-out;
-}
+      #help-icon svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease-in-out;
+      }
 
-#help-icon:hover {
-  transform: scale(1.2);
-}
+      #help-icon:hover {
+        transform: scale(1.2);
+      }
 
-#help-icon .tooltiptext {
-  visibility: hidden;
-  width: 1500%;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 2000;
-  top: 125%;
-  left: 10%;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 12px;
-}
+      #help-icon .tooltiptext {
+        visibility: hidden;
+        width: 1500%;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 2000;
+        top: 125%;
+        left: 10%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+      }
 
-#help-icon:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+      #help-icon:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 
-#zoom-section .tooltiptext {
-  visibility: hidden;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 2000;
-  top: 80%;
-  transform: translateX(100%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 12px;
-}
+      #zoom-section .tooltiptext {
+        visibility: hidden;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 2000;
+        top: 80%;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+      }
 
-#zoom-section:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+      #zoom-section:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 
-#word-container {
-  width: 100%;
-  height: calc(100% - 50px);
-  box-sizing: border-box;
-  overflow-y: auto;
-  position: relative;
-  align-items: center;
-}
+      #word-container {
+        width: 100%;
+        height: calc(100% - 50px);
+        box-sizing: border-box;
+        overflow-y: auto;
+        position: relative;
+        align-items: center;
+      }
 
-#word-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
+      #word-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
 
-#word-icon svg {
-  width: 24px;
-  height: 24px;
-  transition: fill 0.3s ease-in-out;
-}
+      #word-icon svg {
+        width: 24px;
+        height: 24px;
+        transition: fill 0.3s ease-in-out;
+      }
 
-#word-icon:hover {
-  transform: scale(1.2);
-}
+      #word-icon:hover {
+        transform: scale(1.2);
+      }
 
-#word-icon:hover svg {
-  fill: #87ccfd;
-}
+      #word-icon:hover svg {
+        fill: #87ccfd;
+      }
 
-#word-icon .tooltiptext {
-  visibility: hidden;
-  width: 500%;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 2000;
-  top: 125%;
-  right: 10%;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 12px;
-}
+      #word-icon .tooltiptext {
+        visibility: hidden;
+        width: 500%;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 2000;
+        top: 125%;
+        right: 10%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+      }
 
-#word-icon:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+      #word-icon:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 
-#print-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  opacity: 0.7;
-}
+      #print-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        opacity: 0.7;
+      }
 
-#print-icon svg {
-  width: 24px;
-  height: 24px;
-  transition: fill 0.3s ease-in-out;
-}
+      #print-icon svg {
+        width: 24px;
+        height: 24px;
+        transition: fill 0.3s ease-in-out;
+      }
 
-#print-icon:hover svg {
-  fill: #fff;
-}
+      #print-icon:hover svg {
+        fill: #fff;
+      }
 
-#print-icon .tooltiptext {
-  visibility: hidden;
-  width: 400%;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 2000;
-  top: 125%;
-  right: 10%;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 12px;
-}
+      #print-icon .tooltiptext {
+        visibility: hidden;
+        width: 400%;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 2000;
+        top: 125%;
+        right: 10%;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+      }
 
-#print-icon:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
+      #print-icon:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 
-#inner-container {
-  width: 100%;
-  height: 100%;
-  transform-origin: top center;
-}      
-      </style>
+      #inner-container {
+        width: 100%;
+        height: 100%;
+        transform-origin: top center;
+      }
+    </style>
   </head>
   <body>
     <div id='toolbar'>
@@ -296,37 +297,35 @@ body {
     <script src="https://unpkg.com/docx-preview@0.3.2/dist/docx-preview.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
-        // Global variables to hold the URL of the PDF and the base64 string of the DOCX file
-        let pdfUrl;
-        let base64Docx;
-        let filename;
-      
-        // Function to download the DOCX file
-        function downloadFile() {
-          if (base64Docx) {
-            var link = document.createElement('a');
-            link.href = base64Docx;
-            if (filename) {
-                link.download = filename + '.docx';
-            } else {
-                link.download = 'Download.docx';
-            }
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+      // Global variables to hold the URL of the PDF and the base64 string of the DOCX file
+      let pdfUrl;
+      let base64Docx;
+      let filename;
+      // Function to download the DOCX file
+      function downloadFile() {
+        if (base64Docx) {
+          var link = document.createElement('a');
+          link.href = base64Docx;
+          if (filename) {
+            link.download = filename + '.docx';
+          } else {
+            link.download = 'Download.docx';
           }
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         }
-      
-        // Function to open the PDF in a new window for printing
-        function printPDF() {
-          if (pdfUrl) {
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(`
-              <html>
-                <head>
-                  <title>MyPDF Title</title>
-                  <style>
+      }
+      // Function to open the PDF in a new window for printing
+      function printPDF() {
+        if (pdfUrl) {
+          const printWindow = window.open('', '_blank');
+          printWindow.document.write(`
+              
+						<html>
+							<head>
+								<title>MyPDF Title</title>
+								<style>
                     body, html {
                       margin: 0;
                       padding: 0;
@@ -340,156 +339,144 @@ body {
                       border: none;
                     }
                   </style>
-                </head>
-                <body>
-                  <iframe title="MyPDF Title" src="\${pdfUrl}" download="filename as required.pdf">Description for users</iframe>
-                </body>
-              </html>
+							</head>
+							<body>
+								<iframe title="MyPDF Title" src="\${pdfUrl}" download="filename as required.pdf">Description for users</iframe>
+							</body>
+						</html>
               `);
-            printWindow.document.close();
-            printWindow.onload = function() {
-              setTimeout(function() {
-                printWindow.focus();
-              }, 1000);
-            };
+          printWindow.document.close();
+          printWindow.onload = function() {
+            setTimeout(function() {
+              printWindow.focus();
+            }, 1000);
+          };
+        }
+      }
+      // Function to convert DOCX to PDF and render it in the container
+      async function convertDocxToPdf(base64Docx) {
+        Zoomer()
+        Printer()
+        // Decode the base64 string to an ArrayBuffer
+        const byteCharacters = atob(base64Docx.split(',')[1]);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const arrayBuffer = byteArray.buffer;
+        const container = document.getElementById('container');
+        // Set a fixed width for all pages in the container
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.alignItems = 'center';
+        await docx.renderAsync(arrayBuffer, container, null, {
+          className: 'page',
+          breakPages: true,
+          ignoreWidth: true,
+          ignoreHeight: true,
+          useBase64URL: true,
+          renderHeaders: true,
+          renderFooters: true,
+          renderFootnotes: true
+        });
+        // Ensure all pages have the same width
+        const pages = container.querySelectorAll('.page');
+        let maxWidth = 0;
+        pages.forEach(page => {
+          const rect = page.getBoundingClientRect();
+          if (rect.width > maxWidth) {
+            maxWidth = rect.width;
           }
-        }
-      
-        // Function to convert DOCX to PDF and render it in the container
-        async function convertDocxToPdf(base64Docx) {
-          Zoomer()
-          Printer()
-          // Decode the base64 string to an ArrayBuffer
-          const byteCharacters = atob(base64Docx.split(',')[1]);
-          const byteNumbers = new Array(byteCharacters.length);
-          for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
-          }
-          const byteArray = new Uint8Array(byteNumbers);
-          const arrayBuffer = byteArray.buffer;
-          const container = document.getElementById('container');
-      
-          // Set a fixed width for all pages in the container
-          container.style.display = 'flex';
-          container.style.flexDirection = 'column';
-          container.style.alignItems = 'center';
-      
-          await docx.renderAsync(arrayBuffer, container, null, {
-            className: 'page',
-            breakPages: true,
-            ignoreWidth: true,
-            ignoreHeight: true,
-            useBase64URL: true,
-            renderHeaders: true,
-            renderFooters: true,
-            renderFootnotes: true
+        });
+        pages.forEach(page => {
+          page.style.width = `${maxWidth}px`;
+          page.style.boxSizing = 'border-box';
+          page.style.marginBottom = '20px';
+        });
+        // Create a PDF using pdf-lib
+        const pdfDoc = await PDFLib.PDFDocument.create();
+        const letterWidth = 8.5 * 72;
+        const legalWidth = 8.5 * 72;
+        const letterHeight = 11 * 72;
+        const legalHeight = 14 * 72;
+        // Iterate over the rendered pages
+        for (const page of pages) {
+          const rect = page.getBoundingClientRect();
+          const originalWidth = rect.width;
+          const originalHeight = rect.height;
+          const originalAspectRatio = originalHeight / originalWidth;
+          const isLetterSize = originalHeight <= letterHeight && originalWidth <= letterWidth;
+          const width = isLetterSize ? letterWidth : legalWidth;
+          const height = width * originalAspectRatio;
+          const canvas = document.createElement('canvas');
+          canvas.width = rect.width * 2;
+          canvas.height = rect.height * 2;
+          const ctx = canvas.getContext('2d');
+          ctx.scale(2, 2);
+          // Render the page to the canvas
+          await html2canvas(page, {
+            canvas,
+            scale: 1,
+            useCORS: true
           });
-      
-          // Ensure all pages have the same width
-          const pages = container.querySelectorAll('.page');
-          let maxWidth = 0;
-          pages.forEach(page => {
-            const rect = page.getBoundingClientRect();
-            if (rect.width > maxWidth) {
-              maxWidth = rect.width;
-            }
+          // Convert the canvas to an image
+          const imgData = canvas.toDataURL('image/jpeg');
+          // Add the image to the PDF
+          const pdfPage = pdfDoc.addPage([width, height]);
+          const img = await pdfDoc.embedJpg(imgData);
+          pdfPage.drawImage(img, {
+            x: 0,
+            y: 0,
+            width: width,
+            height: height,
           });
-          pages.forEach(page => {
-            page.style.width = `${maxWidth}px`;
-            page.style.boxSizing = 'border-box';
-            page.style.marginBottom = '20px';
-          });
-      
-          // Create a PDF using pdf-lib
-          const pdfDoc = await PDFLib.PDFDocument.create();
-          const letterWidth = 8.5 * 72;
-          const legalWidth = 8.5 * 72;
-          const letterHeight = 11 * 72;
-          const legalHeight = 14 * 72;
-      
-          // Iterate over the rendered pages
-          for (const page of pages) {
-            const rect = page.getBoundingClientRect();
-            const originalWidth = rect.width;
-            const originalHeight = rect.height;
-            const originalAspectRatio = originalHeight / originalWidth;
-            const isLetterSize = originalHeight <= letterHeight && originalWidth <= letterWidth;
-            const width = isLetterSize ? letterWidth : legalWidth;
-            const height = width * originalAspectRatio;
-            const canvas = document.createElement('canvas');
-            canvas.width = rect.width * 2;
-            canvas.height = rect.height * 2;
-            const ctx = canvas.getContext('2d');
-            ctx.scale(2, 2);
-      
-            // Render the page to the canvas
-            await html2canvas(page, {
-              canvas,
-              scale: 1,
-              useCORS: true
-            });
-      
-            // Convert the canvas to an image
-            const imgData = canvas.toDataURL('image/jpeg');
-      
-            // Add the image to the PDF
-            const pdfPage = pdfDoc.addPage([width, height]);
-            const img = await pdfDoc.embedJpg(imgData);
-            pdfPage.drawImage(img, {
-              x: 0,
-              y: 0,
-              width: width,
-              height: height,
-            });
-          }
-      
-          // Save the PDF
-          const pdfBytes = await pdfDoc.save();
-          const pdfData = pdfBytes.reduce((data, byte) => data + String.fromCharCode(byte), '');
-          const pdfBase64 = btoa(pdfData);
-      
-          // Create a data URL for the PDF
-          pdfUrl = 'data:application/pdf;base64,' + pdfBase64;
-          return pdfUrl;
         }
-        // Function to determine the tooltip position based on the zoom value
-        function tooltip_position(value) {
-            if (value <= 0.3) {
-                return -30;
-            } else if (value <= 1) {
-                return -30 + (value - 0.3) * ((100 - (-30)) / (1 - 0.3));
-            } else if (value <= 2) {
-                return 100 + (value - 1) * ((250 - 100) / (2 - 1));
-            } else {
-                return 250 + (value - 2) * ((250 - 100) / (2 - 1));
-            }
+        // Save the PDF
+        const pdfBytes = await pdfDoc.save();
+        const pdfData = pdfBytes.reduce((data, byte) => data + String.fromCharCode(byte), '');
+        const pdfBase64 = btoa(pdfData);
+        // Create a data URL for the PDF
+        pdfUrl = 'data:application/pdf;base64,' + pdfBase64;
+        return pdfUrl;
+      }
+      // Function to determine the tooltip position based on the zoom value
+      function tooltip_position(value) {
+        if (value <= 0.3) {
+          return -30;
+        } else if (value <= 1) {
+          return -30 + (value - 0.3) * ((100 - (-30)) / (1 - 0.3));
+        } else if (value <= 2) {
+          return 100 + (value - 1) * ((250 - 100) / (2 - 1));
+        } else {
+          return 250 + (value - 2) * ((250 - 100) / (2 - 1));
         }
-        
-        function Zoomer() {
-            // Selecting elements from the DOM
-            const inner = document.querySelector('#inner-container');
-            const zoomSection = document.querySelector('#zoom-section');
-            const zoomSlider = document.getElementById('zoom-slider');
-            const tooltip = zoomSection.querySelector('.tooltiptext');
-        
-            // Event listener for the zoom slider to adjust the zoom level and tooltip
-            zoomSlider.addEventListener('input', function() {
-                inner.style.transform = 'scale(' + zoomSlider.value + ')';
-                tooltip.textContent = Math.floor(zoomSlider.value * 100) + '%';
-                tooltip.style.transform = 'translateX(' + tooltip_position(zoomSlider.value) + '%)';
-            });
-        }
-        
-        function Printer(){
-            const printer = document.querySelector('#print-icon');
-            printer.style.opacity = '1';
-            printer.addEventListener('mouseenter', () => {
-                printer.style.transform = 'scale(1.2)';
-            });
-            printer.addEventListener('mouseleave', () => {
-                printer.style.transform = 'scale(1)';
-            });
-        }
-    </script> 
+      }
+
+      function Zoomer() {
+        // Selecting elements from the DOM
+        const inner = document.querySelector('#inner-container');
+        const zoomSection = document.querySelector('#zoom-section');
+        const zoomSlider = document.getElementById('zoom-slider');
+        const tooltip = zoomSection.querySelector('.tooltiptext');
+        // Event listener for the zoom slider to adjust the zoom level and tooltip
+        zoomSlider.addEventListener('input', function() {
+          inner.style.transform = 'scale(' + zoomSlider.value + ')';
+          tooltip.textContent = Math.floor(zoomSlider.value * 100) + '%';
+          tooltip.style.transform = 'translateX(' + tooltip_position(zoomSlider.value) + '%)';
+        });
+      }
+
+      function Printer() {
+        const printer = document.querySelector('#print-icon');
+        printer.style.opacity = '1';
+        printer.addEventListener('mouseenter', () => {
+          printer.style.transform = 'scale(1.2)';
+        });
+        printer.addEventListener('mouseleave', () => {
+          printer.style.transform = 'scale(1)';
+        });
+      }
+    </script>
   </body>
 </html>
