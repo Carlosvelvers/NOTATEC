@@ -378,11 +378,11 @@
                   border: none;
                 }
               </style>
-							</head>
-							<body>
-								<iframe title="MyPDF Title" src="${pdfUrl}" download="filename as required.pdf">Description for users</iframe>
-							</body>
-						</html>
+		</head>
+			<body>
+				<iframe title="Imprimir Formato" src="${pdfUrl}"></iframe>
+			</body>
+	</html>
         `);
           printWindow.document.close();
           printWindow.onload = function() {
